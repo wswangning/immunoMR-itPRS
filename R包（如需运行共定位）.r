@@ -1,0 +1,1 @@
+install.packages(c("TwoSampleMR", "coloc", "ieugwasr", "dplyr"))

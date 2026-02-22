@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>策略B MR分析报告 - Python版本</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h1 { color: #2c3e50; }
+        h2 { color: #34495e; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+        .result-box { background: #f8f9fa; border: 1px solid #ddd; padding: 20px; margin: 20px 0; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .significant { color: green; font-weight: bold; }
+        .warning { color: orange; font-weight: bold; }
+        img { max-width: 100%; height: auto; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>策略B MR分析报告</h1>
+    <p>分析时间: 2026-02-11 20:35:47</p>
+
+    <h2>1. 分析概述</h2>
+    <ul>
+        <li><strong>暴露:</strong> IL-18 (pQTL)</li>
+        <li><strong>结局:</strong> 肺癌 (UK Biobank GWAS)</li>
+        <li><strong>工具变量:</strong> 915个显著SNP (P < 5e-6)</li>
+        <li><strong>平均F统计量:</strong> 47.81</li>
+    </ul>
+
+    <h2>2. MR分析结果</h2>
+    <div class="result-box">
+        <table>
+            <tr>
+                <th>方法</th>
+                <th>效应值 (beta)</th>
+                <th>标准误</th>
+                <th>P值</th>
+                <th>95% CI</th>
+                <th>SNP数量</th>
+            </tr>
+
+            <tr>
+                <td>IVW_fixed</td>
+                <td>0.0000</td>
+                <td>0.0001</td>
+                <td class="">9.0137e-01</td>
+                <td>[-0.0003, 0.0003]</td>
+                <td>736</td>
+            </tr>
+
+            <tr>
+                <td>IVW_random</td>
+                <td>0.0000</td>
+                <td>0.0001</td>
+                <td class="">9.0137e-01</td>
+                <td>[-0.0003, 0.0003]</td>
+                <td>736</td>
+            </tr>
+
+            <tr>
+                <td>MR_Egger</td>
+                <td>0.0000</td>
+                <td>0.0001</td>
+                <td class="">9.3246e-01</td>
+                <td>[-0.0003, 0.0003]</td>
+                <td>736</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <h2>3. 敏感性分析</h2>
+<h3>3.1 Heterogeneity</h3><ul><li><strong>Q_statistic:</strong> 594.1605</li><li><strong>Q_df:</strong> 735.0000</li><li><strong>Q_pval:</strong> 1.0000</li></ul>
+    <h2>4. 可视化</h2>
+    <p>以下图表展示了MR分析结果：</p>
+    <img src="mr_visualizations.png" alt="MR可视化图表">
+
+    <h2>5. 结论</h2>
+
+    <p>❌ <strong>主要发现:</strong> 未发现IL-18对肺癌风险的显著因果效应 (P = 9.0137e-01)</p>
+
+    <h2>6. 下一步建议</h2>
+    <ul>
+        <li>1. 检查敏感性分析结果，确保MR假设成立</li>
+        <li>2. 如果结果显著，考虑进行共定位分析</li>
+        <li>3. 探索其他NLRP3通路分子（IL1B, CASP1等）</li>
+        <li>4. 进行中介分析（免疫细胞的中介作用）</li>
+        <li>5. 亚组分析（肺腺癌 vs 肺鳞癌）</li>
+    </ul>
+
+    <h2>7. 技术信息</h2>
+    <p>分析方法: Python MR分析 (自定义实现)</p>
+    <p>包括方法: IVW (固定/随机效应), MR-Egger, 加权中位数</p>
+    <p>敏感性分析: 异质性检验, 留一法, 漏斗图检验</p>
+</body>
+</html>

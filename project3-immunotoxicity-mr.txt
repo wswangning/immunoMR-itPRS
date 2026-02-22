@@ -1,0 +1,57 @@
+project3-immunotoxicity-mr/
+│
+├── README.md
+├── requirements.txt
+│
+├── data/
+│   └── MR_Data/               # 放置清洗后的GWAS数据（用户自行准备）
+│
+├── scripts/
+│   ├── 01_data_preparation/
+│   │   ├── prepare_mr_data.py
+│   │   ├── prepare_tcga_eqtl.py
+│   │   ├── convert_neut.py
+│   │   └── prepare_coloc_input.py
+│   │
+│   ├── 02_immune_subtype_clustering/
+│   │   ├── itprs_clustering_final.py
+│   │   └── itprs_clustering_only.py
+│   │
+│   ├── 03_mr_analysis/
+│   │   ├── tcga_mr_analysis.py
+│   │   ├── tcga_mr_post_analysis.py
+│   │   ├── mvmr_LUAD.py
+│   │   ├── multivariate_mr.py
+│   │   ├── run_mvmr.py
+│   │   └── mediation_extension.py
+│   │
+│   ├── 04_gtex_validation/
+│   │   ├── fetch_gtex_lung_eqtl.py
+│   │   ├── analyze_gtex_eqtl.py
+│   │   └── gtex_validation.py
+│   │
+│   ├── 05_coloc_smr/
+│   │   ├── generate_coloc.py
+│   │   └── run_coloc.py
+│   │
+│   ├── 06_visualization/
+│   │   ├── plot_forest.py
+│   │   ├── plot_scatter.py
+│   │   ├── plot_funnel.py
+│   │   ├── plot_loo.py
+│   │   ├── plot_subtype_mr.py
+│   │   └── generate_reports.py
+│   │
+│   └── utils/
+│       ├── mr_functions.py
+│       ├── data_loader.py
+│       └── coloc_functions.py
+│
+├── outputs/
+│   ├── ML_results/
+│   ├── TCGA_MR_Results/
+│   ├── MVMR_results/
+│   └── figures/
+│
+└── docs/
+    └── supplementary_materials.md
